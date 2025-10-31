@@ -1,65 +1,179 @@
-import Image from "next/image";
+"use client"
+
+import { motion } from "framer-motion"
+import Image from "next/image"
+import Link from "next/link"
+import { ProductCard } from "@/components/ProductsCard"
+import { products } from "@/lib/products"
+import { Instagram, MessageCircle, MapPin } from "lucide-react"
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-br from-yellow-50 via-orange-50 to-green-50">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-3xl"></div>
+          <div className="absolute top-40 right-10 w-72 h-72 bg-orange-300 rounded-full mix-blend-multiply filter blur-3xl"></div>
+          <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-3xl"></div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+              <motion.h1
+                className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                Segarnya Buah Asli dalam Setiap Tegukan
+              </motion.h1>
+
+              <motion.p
+                className="text-xl text-gray-700 mb-8 leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                Jis Juice menghadirkan jus buah segar berkualitas tinggi dengan rasa alami yang lezat. Dibuat dari
+                buah-buah pilihan terbaik untuk kesehatan Anda.
+              </motion.p>
+
+              <motion.div
+                className="flex gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                <Link
+                  href="#products"
+                  className="bg-linear-to-r from-yellow-400 to-orange-500 text-white font-bold py-3 px-8 rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+                >
+                  Lihat Produk
+                </Link>
+                <a
+                  href="https://wa.me/6281234567890"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border-2 border-orange-500 text-orange-500 font-bold py-3 px-8 rounded-full hover:bg-orange-50 transition-all duration-300"
+                >
+                  Pesan Sekarang
+                </a>
+              </motion.div>
+            </motion.div>
+
+            {/* Right Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="relative h-96 md:h-full"
+            >
+              <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}>
+                <Image
+                  src="/hero-juice.jpeg"
+                  alt="Jis Juice"
+                  width={500}
+                  height={500}
+                  className="w-full h-auto"
+                />
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
-      </main>
-    </div>
-  );
+      </section>
+
+      {/* Products Section */}
+      <section id="products" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Koleksi Produk Kami</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Pilihan jus buah segar dengan berbagai rasa yang menyegarkan dan menyehatkan
+            </p>
+            <div className="w-24 h-1 bg-linear-to-r from-yellow-400 to-orange-500 mx-auto mt-6 rounded-full"></div>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {products.map((product, index) => (
+              <ProductCard key={product.id} product={product} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 bg-linear-to-br from-gray-900 to-gray-800 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Hubungi Kami</h2>
+            <p className="text-xl text-gray-300">Kami siap melayani pesanan Anda dengan sepenuh hati</p>
+            <div className="w-24 h-1 bg-linear-to-r from-yellow-400 to-orange-500 mx-auto mt-6 rounded-full"></div>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* WhatsApp */}
+            <motion.a
+              href="https://wa.me/6282139376702"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-green-500 hover:bg-green-600 p-8 rounded-2xl text-center transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+            >
+              <MessageCircle size={48} className="mx-auto mb-4" />
+              <h3 className="text-2xl font-bold mb-2">WhatsApp</h3>
+              <p className="text-green-100">+62 8213 9376 702</p>
+            </motion.a>
+
+            {/* Instagram */}
+            <motion.a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-pink-500 hover:bg-pink-600 p-8 rounded-2xl text-center transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+            >
+              <Instagram size={48} className="mx-auto mb-4" />
+              <h3 className="text-2xl font-bold mb-2">Instagram</h3>
+              <p className="text-pink-100">@jisjuice</p>
+            </motion.a>
+
+            {/* Location */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-orange-500 p-8 rounded-2xl text-center transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+            >
+              <MapPin size={48} className="mx-auto mb-4" />
+              <h3 className="text-2xl font-bold mb-2">Lokasi</h3>
+              <p className="text-orange-100">Lamongan, Indonesia</p>
+            </motion.div>
+          </div>
+          
+        </div>
+      </section>
+    </main>
+  )
 }
